@@ -1,249 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Journey</title>
-    <style>
-      /* Base Reset */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Journey</title>
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      /* Fonts & Colors */
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #0f172a;
-        /* slate-900 */
-        color: #e0f2fe;
-        /* sky-100 */
-        line-height: 1.6;
-        scroll-behavior: smooth;
-      }
+    /* Fonts & Colors */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f172a; /* slate-900 */
+      color: #e0f2fe; /* sky-100 */
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-      header {
-        background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
-        color: white;
-        padding: 40px 20px;
-        text-align: center;
-        box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
-        transition: background 0.4s ease;
-      }
+    header {
+      background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(14,165,233,0.3);
+      transition: background 0.4s ease;
+    }
 
-      header:hover {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-      }
+    header:hover {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    }
 
-      header h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-      }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
 
-      nav {
-        background-color: #1e293b;
-        /* dark slate */
-        padding: 15px;
-        text-align: center;
-      }
+    nav {
+      background-color: #1e293b; /* dark slate */
+      padding: 15px;
+      text-align: center;
+    }
 
-      nav a {
-        color: #7dd3fc;
-        /* sky-300 */
-        text-decoration: none;
-        margin: 0 20px;
-        font-weight: bold;
-        font-size: 1.1rem;
-        transition: color 0.3s ease, transform 0.3s ease;
-      }
+    nav a {
+      color: #7dd3fc; /* sky-300 */
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-      nav a:hover {
-        color: #38bdf8;
-        /* sky-400 */
-        transform: scale(1.1);
-      }
+    nav a:hover {
+      color: #38bdf8; /* sky-400 */
+      transform: scale(1.1);
+    }
 
-      main {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-      section {
-        background: #1e293b;
-        /* dark slate */
-        margin-bottom: 30px;
-        border-radius: 16px;
-        box-shadow: 0 4px 14px rgba(59, 130, 246, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+    section {
+      background: #1e293b; /* dark slate */
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(59,130,246,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-      section:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3);
-      }
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(56,189,248,0.3);
+    }
 
-      .collapsible {
-        background-color: #1e293b;
-        color: #60a5fa;
-        cursor: pointer;
-        padding: 16px 24px;
-        width: 100%;
-        text-align: left;
-        border: none;
-        outline: none;
-        font-size: 1.4rem;
-        font-weight: bold;
-        border-radius: 16px 16px 0 0;
-        transition: background-color 0.3s ease;
-        user-select: none;
-      }
+    .collapsible {
+      background-color: #1e293b;
+      color: #60a5fa;
+      cursor: pointer;
+      padding: 16px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 1.4rem;
+      font-weight: bold;
+      border-radius: 12px;
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
+    }
 
-      .collapsible:hover {
-        background-color: #334155;
-      }
+    .collapsible:hover {
+      background-color: #334155;
+    }
 
-      .content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease, padding 0.3s ease;
-        background-color: #1e293b;
-        border-radius: 0 0 16px 16px;
-        padding-top: 0;
-        padding-bottom: 0;
-        padding-left: 24px;
-        padding-right: 24px;
-      }
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+      background-color: #1e293b;
+      border-radius: 12px;
+      padding: 0 16px;
+      color: #cbd5e1;
+    }
 
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-        margin-top: 12px;
-      }
+    .content.open {
+      padding: 16px;
+      max-height: 1000px; /* generous max height */
+    }
 
-      .checklist li {
-        padding: 10px 0;
-        position: relative;
-        padding-left: 30px;
-        color: #cbd5e1;
-        line-height: 1.4;
-      }
+    footer {
+      background-color: #0f172a;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #94a3b8; /* slate-400 */
+      border-top: 1px solid #1e293b;
+    }
 
-      .checklist li::before {
-        content: '🔹';
-        position: absolute;
-        left: 0;
-        color: #3b82f6;
-      }
+    footer:hover {
+      color: #bae6fd; /* sky-200 */
+    }
 
-      input[type="checkbox"] {
-        margin-right: 10px;
-        transform: scale(1.2);
-        vertical-align: middle;
-        cursor: not-allowed;
-      }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
 
-      footer {
-        background-color: #0f172a;
-        text-align: center;
-        padding: 20px 10px;
-        font-size: 0.9rem;
-        color: #94a3b8;
-        /* slate-400 */
-        border-top: 1px solid #1e293b;
-      }
+    ul li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+    }
 
-      footer:hover {
-        color: #bae6fd;
-        /* sky-200 */
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>My Journey✨😸</h1>
-      <p>Let’s get deep. Where am I going, how’s it going, and what’s next? 🧭😼</p>
-    </header>
-    <nav>
-      <a href="#where">Where Am I Going? 🛤️🐾</a>
-      <a href="#how">How’s It Going? 📊😺</a>
-      <a href="#next">Where to Next? 🚦😻</a>
-    </nav>
-    <main>
-      <section id="where">
-        <button class="collapsible">📍 Where Am I Going? 😽</button>
-        <div class="content">
-          <ul class="checklist">
-            <li>
-              <input type="checkbox" disabled> IB/OSSD Diploma 🎓😸
-            </li>
-            <li>
-              <input type="checkbox" disabled> Ontario Provincial Police: Auxiliary Constabulary Program 💻😺
-            </li>
-            <li>
-              <input type="checkbox" disabled> UWO 🏫🐈‍⬛
-            </li>
-            <li>
-              <input type="checkbox" disabled> Medical Residency 🩺😻
-            </li>
-            <li>
-              <input type="checkbox" disabled> Psychiatry 🧠🐾
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section id="how">
-        <button class="collapsible">📈 How’s It Going? 😼</button>
-        <div class="content">
-          <ul class="checklist">
-            <li>
-              <input type="checkbox" checked disabled> Completed 3 out of 6 credits 🧠🐱
-            </li>
-            <li>
-              <input type="checkbox" checked disabled> Learned basic HTML & CSS 🔧🐈
-            </li>
-            <li>
-              <input type="checkbox" checked disabled> Got starter job 🤞😹
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section id="next">
-        <button class="collapsible">🛣️ Where to Next? 😺</button>
-        <div class="content">
-          <ul class="checklist">
-            <li>
-              <input type="checkbox" disabled> Make Important Connections 👥😻
-            </li>
-            <li>
-              <input type="checkbox" disabled> Keep updating my resume 📄🐾
-            </li>
-            <li>
-              <input type="checkbox" disabled> Apply into every youth internship I can (policing, medicine) 🐈‍⬛🚓🩺
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2025 Gabriel. Made with reflection, ambition, and lots of Coke Zero :) 💙😽</p>
-    </footer>
-    <script>
-      document.querySelectorAll('.collapsible').forEach(button => {
-        button.addEventListener('click', () => {
-          const content = button.nextElementSibling;
-          if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-            content.style.maxHeight = null;
-            content.style.paddingTop = '0';
-            content.style.paddingBottom = '0';
-          } else {
-            content.style.maxHeight = content.scrollHeight + 'px';
-            content.style.paddingTop = '16px';
-            content.style.paddingBottom = '16px';
-          }
-        });
+    ul li::before {
+      content: "🔹";
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Journey✨</h1>
+    <p>Let’s get deep. Where am I going, how’s it going, and what’s next?</p>
+  </header>
+
+  <nav>
+    <a href="#where">Where Am I Going?</a>
+    <a href="#how">How’s It Going?</a>
+    <a href="#next">Where to Next?</a>
+  </nav>
+
+  <main>
+    <section id="where">
+      <button class="collapsible">📍 Where Am I Going?</button>
+      <div class="content">
+        <p>My main goals are focused on building a strong foundation for a future career that combines service, education, and mental health. First, I am working towards completing my IB and OSSD diploma, with a focus on Biology and Chemistry. These diplomas will give me the academic skills and discipline I need to succeed in post-secondary education. At the same time, I want to join the Ontario Provincial Police Auxiliary Constabulary program. This program will give me practical experience in law enforcement and community service, without taking on a full police role. After that, I plan to study at Western University to prepare for medical residency at UdL with a focus on psychiatry. This way, I can mix my passion for science with helping people facing mental health challenges.
+
+Each of these goals fits together like stepping stones. They bring me closer to a career where I can make a real difference. I want a life where I use discipline and empathy equally. These goals will help me build the knowledge and skills to do just that.</p>
+      </div>
+    </section>
+
+    <section id="how">
+      <button class="collapsible">📈 How’s It Going?</button>
+      <div class="content">
+        <p>Looking back on my progress, I can say that feedback has played a huge role in helping me improve. When I first started coding this website, I did not know much about clean HTML or CSS. But feedback from others showed me why good structure and style matter. This pushed me to rewrite and improve my code to make it easier to use and nicer to look at. This project became a practical way for me to develop my digital skills, not just learn theory. &#10;&#13;
+In school, feedback on my essays and projects helped me find ways to be clearer and think deeper. These comments improved my writing and critical thinking. I have also reached milestones like finishing the most credits I could in a year and landing my first job. These successes gave me confidence and motivation. I realized that progress is not only about big jumps. It is about steady effort and reflecting on how to get better.
+
+I am learning to see feedback as a tool for growth rather than criticism. Whether it is a coding tip or advice about managing my time, I am changing from just finishing tasks to doing them better each time. This way of thinking feels like real growth.</p>
+      </div>
+    </section>
+
+    <section id="next">
+      <button class="collapsible">🛣️ Where to Next?</button>
+      <div class="content">
+        <p>For the future, I want to build on my momentum with clear purpose. One big step will be networking. I plan to reach out and connect with professionals in policing and medicine. These connections will help me find internships and mentors. They will give me a real look at these fields beyond books and classes. I also want fresh feedback from people already working in these careers.
+
+At the same time, I will keep improving my skills. That means learning more about coding, updating my resume often, and applying to youth internships and programs that relate to my interests. By doing this, I will keep moving forward toward my goals with intention and action.>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Gabriel. Made with reflection, ambition, and lots of Coke Zero :) 💙</p>
+  </footer>
+
+  <script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(button => {
+      button.addEventListener("click", () => {
+        const content = button.nextElementSibling;
+        button.classList.toggle("active");
+        if (content.classList.contains("open")) {
+          content.classList.remove("open");
+        } else {
+          content.classList.add("open");
+        }
       });
-    </script>
-  </body>
+    });
+  </script>
+
+</body>
 </html>
