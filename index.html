@@ -170,20 +170,6 @@
   <footer>
     <p>&copy; 2025 Gabriel. Made with reflection, ambition, and lots of Coke Zero :) 💙</p>
   </footer>
-  <script>
-    const collapsibles = document.querySelectorAll(".collapsible");
-    collapsibles.forEach(button => {
-      button.addEventListener("click", () => {
-      button.classList.toggle("active");
-        const content = button.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    });
-  </script>
 
 
 </body>
