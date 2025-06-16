@@ -1,229 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="style.css" />
-  <title>My Journey</title>
-  <style>
-    /* Base Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Journey</title>
+    <style>
+      /* Base Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    /* Fonts & Colors */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f172a; /* slate-900 */
-      color: #e0f2fe; /* sky-100 */
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+      /* Fonts & Colors */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0f172a;
+        /* slate-900 */
+        color: #e0f2fe;
+        /* sky-100 */
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
 
-    header {
-      background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(14,165,233,0.3);
-      transition: background 0.4s ease;
-    }
+      header {
+        background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+        transition: background 0.4s ease;
+      }
 
-    header:hover {
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    }
+      header:hover {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
 
-    nav {
-      background-color: #1e293b; /* dark slate */
-      padding: 15px;
-      text-align: center;
-    }
+      nav {
+        background-color: #1e293b;
+        /* dark slate */
+        padding: 15px;
+        text-align: center;
+      }
 
-    nav a {
-      color: #7dd3fc; /* sky-300 */
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
+      nav a {
+        color: #7dd3fc;
+        /* sky-300 */
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
 
-    nav a:hover {
-      color: #38bdf8; /* sky-400 */
-      transform: scale(1.1);
-    }
+      nav a:hover {
+        color: #38bdf8;
+        /* sky-400 */
+        transform: scale(1.1);
+      }
 
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+      main {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
 
-    section {
-      background: #1e293b; /* dark slate */
-      padding: 25px;
-      margin-bottom: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 14px rgba(59,130,246,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+      section {
+        background: #1e293b;
+        /* dark slate */
+        margin-bottom: 30px;
+        border-radius: 16px;
+        box-shadow: 0 4px 14px rgba(59, 130, 246, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-    section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(56,189,248,0.3);
-    }
+      section:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3);
+      }
 
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: #60a5fa; /* blue-400 */
-    }
+      .collapsible {
+        background-color: #1e293b;
+        color: #60a5fa;
+        cursor: pointer;
+        padding: 16px 24px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        font-size: 1.4rem;
+        font-weight: bold;
+        border-radius: 16px 16px 0 0;
+        transition: background-color 0.3s ease;
+        user-select: none;
+      }
 
-    .placeholder {
-      background-color: #334155; /* slate-700 */
-      padding: 15px;
-      border-left: 5px solid #3b82f6; /* blue-500 */
-      border-radius: 10px;
-      font-style: italic;
-      color: #cbd5e1; /* slate-300 */
-      transition: background 0.3s ease;
-    }
+      .collapsible:hover {
+        background-color: #334155;
+      }
 
-    .placeholder:hover {
-      background-color: #475569; /* slightly lighter slate */
-    }
+      .content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.3s ease;
+        background-color: #1e293b;
+        border-radius: 0 0 16px 16px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
 
-    footer {
-      background-color: #0f172a;
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 0.9rem;
-      color: #94a3b8; /* slate-400 */
-      border-top: 1px solid #1e293b;
-    }
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 12px;
+      }
 
-    footer:hover {
-      color: #bae6fd; /* sky-200 */
-    }
-    .collapsible {
-  background-color: #1e293b;
-  color: #60a5fa;
-  cursor: pointer;
-  padding: 16px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  font-size: 1.4rem;
-  font-weight: bold;
-  border-radius: 12px;
-  transition: background-color 0.3s ease;
-  margin-bottom: 10px;
-}
+      .checklist li {
+        padding: 10px 0;
+        position: relative;
+        padding-left: 30px;
+        color: #cbd5e1;
+        line-height: 1.4;
+      }
 
-.collapsible:hover {
-  background-color: #334155;
-}
+      .checklist li::before {
+        content: '🔹';
+        position: absolute;
+        left: 0;
+        color: #3b82f6;
+      }
 
-.content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.3s ease;
-  background-color: #1e293b;
-  border-radius: 12px;
-  padding: 0 16px;
-}
+      input[type="checkbox"] {
+        margin-right: 10px;
+        transform: scale(1.2);
+        vertical-align: middle;
+        cursor: not-allowed;
+      }
 
-.content.open {
-  padding: 16px;
-  max-height: 500px; /* adjust if you have big content */
-}
+      footer {
+        background-color: #0f172a;
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 0.9rem;
+        color: #94a3b8;
+        /* slate-400 */
+        border-top: 1px solid #1e293b;
+      }
 
-.checklist {
-  list-style: none;
-  padding-left: 0;
-}
-
-.checklist li {
-  padding: 10px;
-  position: relative;
-  padding-left: 24px;
-  color: #cbd5e1;
-}
-
-.checklist li::before {
-  content: '🔹';
-  position: absolute;
-  left: 0;
-  color: #3b82f6;
-}
-
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>My Journey✨</h1>
-    <p>Let’s get deep. Where am I going, how’s it going, and what’s next?</p>
-  </header>
-
-  <nav>
-    <a href="#where">Where Am I Going?</a>
-    <a href="#how">How’s It Going?</a>
-    <a href="#next">Where to Next?</a>
-  </nav>
-
-  <main>
- <main>
-  <section>
-    <button class="collapsible">📍 Where Am I Going?</button>
-    <div class="content">
-      <ul class="checklist">
-        <li><input type="checkbox" disabled> IB/OSSD Diploma 🎓</li>
-        <li><input type="checkbox" disabled> Ontario Provincial Police: Auxiliary Constabulary Program 💻</li>
-        <li><input type="checkbox" disabled> UWO </li>
-        <li><input type="checkbox" disabled> Medical Residency</li>
-        <li><input type="checkbox" disabled> Psychiatry</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <button class="collapsible">📈 How’s It Going?</button>
-    <div class="content">
-      <ul class="checklist">
-        <li><input type="checkbox" checked disabled> Completed 3 out of 6 credits 🧠</li>
-        <li><input type="checkbox" checked disabled> Learned basic HTML & CSS 🔧</li>
-        <li><input type="checkbox" checked disabled> Got starter job 🤞</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <button class="collapsible">🛣️ Where to Next?</button>
-    <div class="content">
-      <ul class="checklist">
-        <li><input type="checkbox" disabled> Make Important Connections 👥</li>
-        <li><input type="checkbox" disabled> Keep updating my resume 📄</li>
-        <li><input type="checkbox" disabled> Apply into every youth internship I can (policing, medicine)</li>
-      </ul>
-    </div>
-  </section>
-</main>
-
-
-
-  <footer>
-    <p>&copy; 2025 Gabriel. Made with reflection, ambition, and lots of Coke Zero :) 💙</p>
-  </footer>
-
-
-</body>
+      footer:hover {
+        color: #bae6fd;
+        /* sky-200 */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Journey✨😸</h1>
+      <p>Let’s get deep. Where am I going, how’s it going, and what’s next? 🧭😼</p>
+    </header>
+    <nav>
+      <a href="#where">Where Am I Going? 🛤️🐾</a>
+      <a href="#how">How’s It Going? 📊😺</a>
+      <a href="#next">Where to Next? 🚦😻</a>
+    </nav>
+    <main>
+      <section id="where">
+        <button class="collapsible">📍 Where Am I Going? 😽</button>
+        <div class="content">
+          <ul class="checklist">
+            <li>
+              <input type="checkbox" disabled> IB/OSSD Diploma 🎓😸
+            </li>
+            <li>
+              <input type="checkbox" disabled> Ontario Provincial Police: Auxiliary Constabulary Program 💻😺
+            </li>
+            <li>
+              <input type="checkbox" disabled> UWO 🏫🐈‍⬛
+            </li>
+            <li>
+              <input type="checkbox" disabled> Medical Residency 🩺😻
+            </li>
+            <li>
+              <input type="checkbox" disabled> Psychiatry 🧠🐾
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="how">
+        <button class="collapsible">📈 How’s It Going? 😼</button>
+        <div class="content">
+          <ul class="checklist">
+            <li>
+              <input type="checkbox" checked disabled> Completed 3 out of 6 credits 🧠🐱
+            </li>
+            <li>
+              <input type="checkbox" checked disabled> Learned basic HTML & CSS 🔧🐈
+            </li>
+            <li>
+              <input type="checkbox" checked disabled> Got starter job 🤞😹
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="next">
+        <button class="collapsible">🛣️ Where to Next? 😺</button>
+        <div class="content">
+          <ul class="checklist">
+            <li>
+              <input type="checkbox" disabled> Make Important Connections 👥😻
+            </li>
+            <li>
+              <input type="checkbox" disabled> Keep updating my resume 📄🐾
+            </li>
+            <li>
+              <input type="checkbox" disabled> Apply into every youth internship I can (policing, medicine) 🐈‍⬛🚓🩺
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Gabriel. Made with reflection, ambition, and lots of Coke Zero :) 💙😽</p>
+    </footer>
+    <script>
+      document.querySelectorAll('.collapsible').forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            content.style.maxHeight = null;
+            content.style.paddingTop = '0';
+            content.style.paddingBottom = '0';
+          } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.paddingTop = '16px';
+            content.style.paddingBottom = '16px';
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
