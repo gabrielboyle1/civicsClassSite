@@ -112,6 +112,59 @@
     footer:hover {
       color: #bae6fd; /* sky-200 */
     }
+    .collapsible {
+  background-color: #1e293b;
+  color: #60a5fa;
+  cursor: pointer;
+  padding: 16px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.collapsible:hover {
+  background-color: #334155;
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.3s ease;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 0 16px;
+}
+
+.content.open {
+  padding: 16px;
+  max-height: 500px; /* adjust if you have big content */
+}
+
+.checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.checklist li {
+  padding: 10px;
+  position: relative;
+  padding-left: 24px;
+  color: #cbd5e1;
+}
+
+.checklist li::before {
+  content: '🔹';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+}
+
   </style>
 </head>
 <body>
@@ -129,22 +182,21 @@
 
   <main>
  <main>
-  <section id="where">
-    <h2>📍 Where Am I Going?</h2>
+  <section>
+    <button class="collapsible">📍 Where Am I Going?</button>
     <div class="content">
       <ul class="checklist">
-        
-        <li><input type="checkbox"disabled> IB/OSSD Diploma 🎓</li>
-        <li><input type="checkbox"disabled> Ontario Provincial Police: Auxiliary Constabulary Program 💻</li>
-        <li><input type="checkbox"disabled> UWO </li>
-        <li><input type="checkbox"disabled> Medical Residency</li>
-        <li><input type="checkbox"disabled> Psychiatry</li>
+        <li><input type="checkbox" disabled> IB/OSSD Diploma 🎓</li>
+        <li><input type="checkbox" disabled> Ontario Provincial Police: Auxiliary Constabulary Program 💻</li>
+        <li><input type="checkbox" disabled> UWO </li>
+        <li><input type="checkbox" disabled> Medical Residency</li>
+        <li><input type="checkbox" disabled> Psychiatry</li>
       </ul>
     </div>
   </section>
 
-  <section id="how">
-    <h2> 📈 How’s It Going?</h2>
+  <section>
+    <button class="collapsible">📈 How’s It Going?</button>
     <div class="content">
       <ul class="checklist">
         <li><input type="checkbox" checked disabled> Completed 3 out of 6 credits 🧠</li>
@@ -154,17 +206,18 @@
     </div>
   </section>
 
-  <section id="next">
-    <h2>🛣️ Where to Next</h2>
+  <section>
+    <button class="collapsible">🛣️ Where to Next?</button>
     <div class="content">
       <ul class="checklist">
-        <li><input type="checkbox"disabled> Make Important Connections 👥</li>
-        <li><input type="checkbox"disabled> Keep updating my resume 📄</li>
-        <li><input type="checkbox"disabled> Apply into every youth internship and initiative I can related to my fields (policing, medicine)</li>
+        <li><input type="checkbox" disabled> Make Important Connections 👥</li>
+        <li><input type="checkbox" disabled> Keep updating my resume 📄</li>
+        <li><input type="checkbox" disabled> Apply into every youth internship I can (policing, medicine)</li>
       </ul>
     </div>
   </section>
 </main>
+
 
 
   <footer>
